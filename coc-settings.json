@@ -1,0 +1,16 @@
+{
+  "languageserver": {
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    }
+  },
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": ["scala"],
+  "coc.preferences.rootPatterns": ["build.sbt", "build.sc", "build.grade", "pom.xml"],
+  "metals.sbtScript": "$SBT_HOME/bin/sbt",
+  "codeLens.enable": true,
+  "metals.superMethodLensesEnabled": true,
+  "metals.statusBarEnabled": true
+}
