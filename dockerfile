@@ -9,6 +9,7 @@ LABEL maintainer toninit
 # - scala
 # - nodejs and npm
 # - git
+# - maven
 # - wget
 RUN set -x \
   && apt-get update \
@@ -39,13 +40,13 @@ ENV XDG_DATA_HOME=$HOME/.config
 RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# manually install coursier
+# manually install coursier (for metals to work)
 RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
   && chmod +x cs \
   && ./cs install cs \
   && rm cs
 
-# manually install bloop
+# manually install bloop (for metals to work)
 ENV PATH=$PATH:$HOME/.config/coursier/bin
 RUN cs update cs \
   && cs install bloop --only-prebuilt=true
