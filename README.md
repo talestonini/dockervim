@@ -13,13 +13,17 @@ Ubuntu base image containing my dev text editor settings, with basic tooling for
 where `directory in host` and `directory in container` allows for mapping projects in host machine into the
 container, e.g.:
 
-    docker run -ti -v ~/dev:/root/dev --name vimide dockervim
+    docker run -ti \
+               -v ~/dev:/root/dev \
+               -v ~/.m2:/root/.m2 \
+               --name vimide
+               dockervim
 
-##### Restarting the container
+#### Restarting the container
 
     docker start -i vimide
 
-##### Starting new instance of container
+#### Starting new instance of container
 
 In a new terminal tab or window:
 
