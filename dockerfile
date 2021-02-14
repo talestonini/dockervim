@@ -1,35 +1,32 @@
 FROM ubuntu
 LABEL maintainer toninit
 
-# install:
-# - curl
-# - neovim
-# - the silver searcher
-# - openjdk8
-# - scala
-# - nodejs and npm
-# - git
-# - maven
-# - wget
+# install most needed software
 RUN set -x \
   && apt-get update \
   && apt install curl -y \
   && apt install neovim -y \
   && apt-get install silversearcher-ag -y \
-  && apt install openjdk-8-jre-headless -y \
+  && apt install openjdk-8-jdk -y \
   && apt-get install scala -y \
   && apt install nodejs -y \
   && apt install npm -y \
   && apt install git -y \
   && apt install maven -y \
   && apt-get install wget -y \
+  && apt-get install cntlm -y \
+  && apt-get install unzip -y \
+  && apt install iputils-ping -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# define home and tools
+# define home, tools and some env vars
 ENV HOME=/root
-RUN mkdir -p $HOME/tools
+RUN mkdir -p $HOME/tools \
+  && git config --global http.sslverify false
 ENV TOOLS_HOME=/root/tools
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
 
 # create the init.vim and coc-settings files
 ADD ./init.vim $HOME/.config/nvim/init.vim
@@ -56,7 +53,3 @@ RUN wget https://github.com/sbt/sbt/releases/download/v1.4.7/sbt-1.4.7.tgz \
   && tar xzvf sbt-1.4.7.tgz -C $TOOLS_HOME
 ENV SBT_HOME=$TOOLS_HOME/sbt
 ENV PATH=$PATH:$SBT_HOME/bin
-
-# env vars
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin
