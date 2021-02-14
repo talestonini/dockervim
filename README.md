@@ -29,7 +29,7 @@ In a new terminal tab or window:
 
     docker exec -it vimide bash
 
-### 3) Post container config
+### 3) Post- container config
 
 #### 3.1) Neovim
 
@@ -51,7 +51,7 @@ After that, these projects should be indexed, jumping to definition and to Java,
 
     $HOME/.config/post_vim.sh
 
-#### 3.3) Configure cntlm
+#### 3.3) Configure cntlm (optional)
 
     cntlm -H -d [DOMAIN] -u [USER]
 
