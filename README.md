@@ -3,9 +3,11 @@
 Ubuntu base image containing my dev text editor settings, with basic tooling for Java and Scala.
 
 ### 1) Build the image
+
     docker build -t dockervim .
 
 ### 2) Run the container
+
     docker run -ti -v [directory in host]:/root/[directory in container] --name vimide dockervim
 
 where `directory in host` and `directory in container` allows for mapping projects in host machine into the

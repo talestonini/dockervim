@@ -28,9 +28,10 @@ ENV TOOLS_HOME=/root/tools
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 
-# create the init.vim and coc-settings files
+# create the init.vim and coc-settings files (needs to be after env HOME is defined)
 ADD ./init.vim $HOME/.config/nvim/init.vim
 ADD ./coc-settings.json $HOME/.config/nvim/coc-settings.json
+ADD ./post_vim.sh $HOME/.config/post_vim.sh
 
 # manually install vim-plug
 ENV XDG_DATA_HOME=$HOME/.config
