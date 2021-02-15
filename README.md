@@ -58,5 +58,5 @@ Put the output into:
 And then:
 
     export http_proxy=http://localhost:3128
-    export https_proxy=https://localhost:3128
+    export https_proxy=http://localhost:3128
     service cntlm restart
