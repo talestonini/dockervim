@@ -10,8 +10,7 @@ Ubuntu base image containing my dev text editor settings, with basic tooling for
 
     docker run -ti -v [directory in host]:/root/[directory in container] --name vimide dockervim
 
-where `directory in host` and `directory in container` allows for mapping projects in host machine into the
-container, e.g.:
+where `directory in host` and `directory in container` allows for mapping projects in host machine into the container, e.g.:
 
     docker run -ti -v ~/dev:/root/dev -v ~/.m2:/root/.m2 --name vimide dockervim
 
@@ -60,7 +59,10 @@ And then:
     export http_proxy=http://localhost:3128
     export https_proxy=http://localhost:3128
     service cntlm restart
-    
-### Notes
 
-- With Neovim runnint withon a terminal (terminal in a Mac or Linux, PowerShell or Command in a Windows), the font utilized by the editor will be the font configured for the terminal.  Therefore, if unicode symbols don't display properly (like the ones utilised by plugin nerdtree-git-plugin), it's a problem with the font not being able to do so.  Look for an appropriate font and consult nerdtree-git-plugin documentation for samples of unicode characters you may be interested in.
+### Notes on fonts
+
+With Neovim runnint within a terminal (terminal in a Mac or Linux, PowerShell or Command in a Windows), the font utilised by the editor will be the font configured for the terminal.  Therefore, if unicode symbols don't display properly (like the ones utilised by plugin nerdtree-git-plugin), it's a problem with the font not being able to do so.  Look for an appropriate font and consult nerdtree-git-plugin documentation for samples of unicode characters you may be interested in.
+A good font for Windows, that has good unicode coverage, is `Dejavu Sans Mono` and you can install it with chocolatey:
+
+    choco install font-nerd-dejavusansmono
