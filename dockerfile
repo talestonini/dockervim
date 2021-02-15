@@ -23,7 +23,8 @@ RUN set -x \
 # define home, tools and some env vars
 ENV HOME=/root
 RUN mkdir -p $HOME/tools \
-  && git config --global http.sslverify false
+  && git config --global http.sslverify false \
+  && git config --global core.autocrlf true
 ENV TOOLS_HOME=/root/tools
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
