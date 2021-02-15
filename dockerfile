@@ -17,6 +17,7 @@ RUN set -x \
   && apt-get install cntlm -y \
   && apt-get install unzip -y \
   && apt install iputils-ping -y \
+  && apt install zsh -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -55,3 +56,7 @@ RUN wget https://github.com/sbt/sbt/releases/download/v1.4.7/sbt-1.4.7.tgz \
   && tar xzvf sbt-1.4.7.tgz -C $TOOLS_HOME
 ENV SBT_HOME=$TOOLS_HOME/sbt
 ENV PATH=$PATH:$SBT_HOME/bin
+
+# manually install ohmyzsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+COPY ./.zshrc $HOME/.zshrc
