@@ -253,7 +253,7 @@ colorscheme iceberg
 highlight CocHighlightText guibg=#ff8a30 guifg=#000000
 
 " Format JSON
-nmap =j :%!python -m json.tool<CR>
+nmap =j :%!python3 -m json.tool<CR>
 
 set autoread
 
