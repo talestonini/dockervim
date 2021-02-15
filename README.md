@@ -60,3 +60,7 @@ And then:
     export http_proxy=http://localhost:3128
     export https_proxy=http://localhost:3128
     service cntlm restart
+    
+### Notes
+
+- With Neovim runnint withon a terminal (terminal in a Mac or Linux, PowerShell or Command in a Windows), the font utilized by the editor will be the font configured for the terminal.  Therefore, if unicode symbols don't display properly (like the ones utilised by plugin nerdtree-git-plugin), it's a problem with the font not being able to do so.  Look for an appropriate font and consult nerdtree-git-plugin documentation for samples of unicode characters you may be interested in.
