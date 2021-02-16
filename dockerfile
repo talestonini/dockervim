@@ -18,14 +18,21 @@ RUN set -x \
   && apt-get install unzip -y \
   && apt install iputils-ping -y \
   && apt install zsh -y \
+  && apt-get install fonts-powerline -y \
+  && apt-get install locales -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# define home, tools and some env vars
+# define home, tools, some env vars and the locale
 ENV HOME=/root
 RUN mkdir -p $HOME/tools \
   && git config --global http.sslverify false \
-  && git config --global core.autocrlf true
+  && locale-gen en_US.UTF-8 \
+  && echo "" >> $HOME/.bashrc \
+  && echo "# Switch to ZSH shell and go home/dev" >> $HOME/.bashrc \
+  && echo "if test -t 1; then" >> $HOME/.bashrc \
+  && echo "  exec zsh" >> $HOME/.bashrc \
+  && echo "fi" >> $HOME/.bashrc
 ENV TOOLS_HOME=/root/tools
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin

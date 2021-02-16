@@ -9,4 +9,5 @@ mv $HOME/.config/coc/extensions/coc-java-data/server $HOME/.config/coc/extension
 mkdir -p $HOME/.config/coc/extensions/coc-java-data/server
 tar -xvf jdt-language-server-0.57.0-202006172108.tar.gz -C $HOME/.config/coc/extensions/coc-java-data/server
 
-cd ~
+# fix CR/LF issue for Windows
+git config --global core.autocrlf true \
