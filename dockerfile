@@ -32,7 +32,8 @@ RUN mkdir -p $HOME/tools \
   && echo "# Switch to ZSH shell and go home/dev" >> $HOME/.bashrc \
   && echo "if test -t 1; then" >> $HOME/.bashrc \
   && echo "  exec zsh" >> $HOME/.bashrc \
-  && echo "fi" >> $HOME/.bashrc
+  && echo "fi" >> $HOME/.bashrc \
+  && echo "cd ~" >> $HOME/.bashrc
 ENV TOOLS_HOME=/root/tools
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
@@ -41,6 +42,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 ADD ./init.vim $HOME/.config/nvim/init.vim
 ADD ./coc-settings.json $HOME/.config/nvim/coc-settings.json
 ADD ./post_vim.sh $HOME/.config/post_vim.sh
+ADD ./eclipse-java-google-style.xml $HOME/.config/eclipse-java-google-style.xml
 
 # manually install vim-plug
 ENV XDG_DATA_HOME=$HOME/.config

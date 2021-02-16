@@ -33,6 +33,7 @@ Open Neovim and:
     :PlugInstall
     :CocInstall coc-metals
     :CocInstall coc-java
+    :CocInstall <any other coc plugin...>
 
 Restart Neovim and the theme should be working.
 Maven-Java projects need `mvn clean install` (outside of Neovim) and then:

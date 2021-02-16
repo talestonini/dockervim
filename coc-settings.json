@@ -1,4 +1,9 @@
 {
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": ["scala", "java", "xml"],
+  "coc.preferences.rootPatterns": ["build.sbt", "build.sc", "build.gradle", "pom.xml"],
+  "codeLens.enable": true,
+  "java.format.settings.url": "/root/.config/eclipse-java-google-style.xml",
   "languageserver": {
     "metals": {
       "command": "metals-vim",
@@ -6,11 +11,7 @@
       "filetypes": ["scala", "sbt"]
     }
   },
-  "coc.preferences.colorSupport": true,
-  "coc.preferences.formatOnSaveFiletypes": ["scala"],
-  "coc.preferences.rootPatterns": ["build.sbt", "build.sc", "build.grade", "pom.xml"],
   "metals.sbtScript": "$SBT_HOME/bin/sbt",
-  "codeLens.enable": true,
-  "metals.superMethodLensesEnabled": true,
-  "metals.statusBarEnabled": true
+  "metals.statusBarEnabled": true,
+  "metals.superMethodLensesEnabled": true
 }
