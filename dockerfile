@@ -20,6 +20,8 @@ RUN set -x \
   && apt install zsh -y \
   && apt-get install fonts-powerline -y \
   && apt-get install locales -y \
+  && apt-get install dos2unix -y \
+  && apt-get install lsof -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
