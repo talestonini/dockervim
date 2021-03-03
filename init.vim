@@ -24,10 +24,13 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Make sure you use single quotes
 Plug 'derekwyatt/vim-scala'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-java'
-Plug 'fannheyward/coc-xml'
+
+" coc.nvim plugins
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-java'
+"Plug 'fannheyward/coc-xml'
+
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -44,13 +47,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'TheZoq2/neovim-auto-autoread'
 "Plug 'Yggdroot/indentLine'
 "Plug 'vim-airline/vim-airline'
-"
+
 " Themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'cocopon/iceberg.vim'
-"
-" Needs to be the very last
-"Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
