@@ -11,7 +11,6 @@
       "filetypes": ["scala", "sbt"]
     }
   },
-  "metals.sbtScript": "$SBT_HOME/bin/sbt",
   "metals.statusBarEnabled": true,
   "metals.superMethodLensesEnabled": true
 }
