@@ -57,7 +57,7 @@ SBT-Scala projects need a few steps to prepare:
     sbt bloopInstall
     nvim build.sbt
 
-This will recreate directories `.bloop` and `.bsp` (`sbt bloopInstall`) and then `.metals` (opening the `build.sbt`). Now metals should detect the project and then request to import it. After a while, jump-to navigation should work (it could be a considerable *while* for the first time).
+This will recreate directories `.bloop` and `.bsp` (`sbt bloopInstall`) and then `.metals` (opening the `build.sbt`). Now metals should detect the project and then request to import it. After a while, jump-to navigation should work (it could take a considerable while for the first time).
 
 Thoubleshooting:
 
