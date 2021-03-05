@@ -4,13 +4,6 @@
   "coc.preferences.rootPatterns": ["build.sbt", "build.sc", "build.gradle", "pom.xml"],
   "codeLens.enable": true,
   "java.format.settings.url": "/root/.config/eclipse-java-google-style.xml",
-  "languageserver": {
-    "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
-    }
-  },
   "metals.statusBarEnabled": true,
   "metals.superMethodLensesEnabled": true
 }
