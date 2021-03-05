@@ -65,6 +65,8 @@ Thoubleshooting:
 - Check the logs in `.metals/`, or
 - Upgrade the scala version used by the project.
 
+It happened to me needing to delete `.bloop`/`.bsp`/`.metals` more than once until connection to the language server worked and all the jump-to definitions could work. A good test is jumping to your own project classes and to Scala classes such as `String` and `Future`.
+
 ### Configuring Coc
 
 You can add further Coc settings with `:CocConfig`, which edits `coc-settings.json`.
