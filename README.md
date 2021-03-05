@@ -1,7 +1,8 @@
 # Dockerised Neovim
 
 Ubuntu base image containing my dev text editor settings, with basic tooling for Java and Scala.
-It is essentially the automation of settings found in these websites:
+
+Essentially, this is the automation of settings found in these websites:
 - [Metals in Vim](https://scalameta.org/metals/docs/editors/vim.html)
 - [coc-metals](https://github.com/scalameta/coc-metals)
 
@@ -27,11 +28,13 @@ Open `nvim` and:
 - `:CocInstall coc-metals`
 
 Restart Neovim and the theme should be working.
+
 Now run the following script:
 
     $HOME/.config/post_vim.sh
 
 Congratulations! The container should be ready to use.
+
 Following are some useful info on dev life-cycle tasks and further config to your env.
 
 ### Loading Java projects
@@ -64,7 +67,9 @@ Thoubleshooting:
 
 ### Configuring Coc
 
-You can add further Coc settings with `:CocConfig`, which edits `coc-settings.json`. Check [coc-java](https://github.com/neoclide/coc-java) and [coc-metals](https://github.com/scalameta/coc-metals) for lists of entries.
+You can add further Coc settings with `:CocConfig`, which edits `coc-settings.json`.
+
+Check [coc-java](https://github.com/neoclide/coc-java) and [coc-metals](https://github.com/scalameta/coc-metals) for lists of entries.
 
 ### Restarting the container
 
