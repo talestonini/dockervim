@@ -1,9 +1,11 @@
 # Dockerised Neovim
 
 Ubuntu base image containing my dev text editor settings, with basic tooling for Java and Scala.
+
 This is essentially the automation of settings found in these websites:
 - [Metals in Vim](https://scalameta.org/metals/docs/editors/vim.html)
 - [coc-metals](https://github.com/scalameta/coc-metals)
+
 Steps to build configure:
 
 ### 1) Build the image
