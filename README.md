@@ -83,7 +83,7 @@ In a new terminal tab or window:
 
     docker exec -it vimide bash
 
-### Notes on fonts
+### Note on fonts
 
 With Neovim runnint within a terminal (terminal in a Mac or Linux, PowerShell or Command in a Windows), the font utilised by the editor will be the font configured for the terminal.  Therefore, if unicode symbols don't display properly (like the ones utilised by plugin nerdtree-git-plugin), it's a problem with the font not being able to do so.  Look for an appropriate font and consult nerdtree-git-plugin documentation for samples of unicode characters you may be interested in.
 A good font for Windows, that has good unicode coverage, is `Dejavu Sans Mono` and you can install it with chocolatey:
