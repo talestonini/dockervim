@@ -35,7 +35,7 @@ Now run the following script:
 
 Congratulations! The container should be ready to use.
 
-Following are some useful info on dev life-cycle tasks and further config to your env.
+Following are some useful info on dev lifecycle tasks and further config to your env.
 
 ### Loading Java projects
 
