@@ -27,11 +27,11 @@ Plug 'derekwyatt/vim-scala'
 
 " coc.nvim plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-java'
-Plug 'neoclide/coc-json'
-Plug 'fannheyward/coc-xml'
-" coc-metals seems more reliable intalling in vim with `:CocInstall coc-metals`
+" coc plugins seem more reliable intalling in vim with `:CocInstall coc-...`
 "Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-java'
+"Plug 'neoclide/coc-json'
+"Plug 'fannheyward/coc-xml'
 
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'

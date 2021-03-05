@@ -1,6 +1,6 @@
 # Dockerised Neovim
 
-Ubuntu base image containing my dev text editor settings, with basic tooling for Java and Scala.
+Ubuntu base image containing my dev text editor settings, with basic tooling for Scala and Java.
 
 Essentially, this is the automation of settings found in these websites:
 - [Metals in Vim](https://scalameta.org/metals/docs/editors/vim.html)
@@ -22,10 +22,14 @@ where `directory in host` and `directory in container` allows for mapping projec
 
 ### 3) Within container config
 
-Open `nvim` and:
+Open Neovim and:
 
 - `:PlugInstall`
 - `:CocInstall coc-metals`
+- `:CocInstall coc-java`
+- `:CocInstall coc-json`
+- `:CocInstall coc-xml`
+- `:CocInstall coc-...`
 
 Restart Neovim and the theme should be working.
 
@@ -33,21 +37,9 @@ Now run the following script:
 
     $HOME/.config/post_vim.sh
 
-Congratulations! The container should be ready to use.
+**Congratulations!** The container should be ready to use.
 
 Following are some useful info on dev lifecycle tasks and further config to your env.
-
-### Loading Java projects
-
-Maven-Java projects need a few steps to prepare:
-
-    mvn clean install
-    nvim pom.xml
-
-- `:CocCommand java.workspace.clean`
-- `:CocCommand java.workspace.compile`
-
-After that, projects should be indexed, jumping to definition and to Java/Spring source code.
 
 ### Loading Scala projects
 
@@ -67,11 +59,24 @@ Thoubleshooting:
 
 It happened to me needing to delete `.bloop`/`.bsp`/`.metals` more than once until connection to the language server worked and all the jump-to definitions could work. A good test is jumping to your own project classes and to Scala classes such as `String` and `Future`.
 
-### Configuring Coc
+### Loading Java projects
+
+Maven-Java projects need a few steps to prepare:
+
+    rm -rf .bloop .bsp .metals
+    mvn clean install
+    nvim pom.xml
+
+- `:CocCommand java.workspace.clean`
+- `:CocCommand java.workspace.compile`
+
+After that, projects should be indexed, jumping to definition and to Java/Spring source code.
+
+### Configuring Coc plugins
 
 You can add further Coc settings with `:CocConfig`, which edits `coc-settings.json`.
 
-Check [coc-java](https://github.com/neoclide/coc-java) and [coc-metals](https://github.com/scalameta/coc-metals) for lists of entries.
+Check [coc-metals](https://github.com/scalameta/coc-metals) and [coc-java](https://github.com/neoclide/coc-java) for lists of entries.
 
 ### Restarting the container
 
@@ -90,7 +95,7 @@ A good font for Windows, that has good unicode coverage, is `Dejavu Sans Mono` a
 
     choco install font-nerd-dejavusansmono
 
-### Configuring cntlm
+### Configuring Cntlm
 
     cntlm -H -d [DOMAIN] -u [USER]
 
