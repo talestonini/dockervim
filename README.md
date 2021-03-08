@@ -55,7 +55,7 @@ This will recreate directories `.bloop` and `.bsp` (`sbt bloopInstall`) and then
 
 **Note #2**: I suspect that plugin `sbt-bloop`'s version (`project/metals.sbt`) should match the version of SBT for the project (`build.properties`). Since `project/metals.sbt` is a file managed by Metals and apparently it bumps up the plugin version to the latest automatically, keep an eye for that version going ahead of your project's SBT version. I noticed that in such case, jump-to navigation was working as project import failed (red message at the bottom).
 
-**Note #3**: Maybe suspition above is not right (to be confirmed). New evidences point to my test project using Scala *2.13* and not having the following essential section in `build.sbt`:
+**Note #3**: Maybe suspicion above is not right (to be confirmed). New evidences point to my test project using Scala *2.13* and not having the following essential section in `build.sbt`:
 
     // Enable macro annotations by setting scalac flags for Scala 2.13
     scalacOptions ++= {
