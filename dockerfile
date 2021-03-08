@@ -30,7 +30,7 @@ RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
   && ./cs bootstrap \
        --java-opt -Xss4m \
        --java-opt -Xms100m \
-       --java-opt -Dmetals.client=vim-lsc \
+       --java-opt -Dmetals.client=coc.nvim \
        org.scalameta:metals_2.12:0.10.0 \
        -r bintray:scalacenter/releases \
        -r sonatype:snapshots \
