@@ -21,10 +21,11 @@ RUN set -x \
   && apt-get install fonts-powerline -y \
   && apt-get install silversearcher-ag -y
 
-# manually install coursier, a JVM, scala dev tools, metals and metals-vim
+# manually install coursier, a JVM, scala dev tools, metals and metals-vim;
+# see https://www.youtube.com/watch?v=o9H2EQO3fVs
 RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
   && chmod +x cs \
-  && ./cs setup --yes --jvm graalvm --apps ammonite,bloop,cs,giter8,sbt,scala,scalafmt,metals \
+  && ./cs setup --yes --apps ammonite,bloop,cs,giter8,metals,sbt,scala,scalafmt \
   # metals-vim is not really needed, but seems to speed connection to language server
   && ./cs bootstrap \
        --java-opt -Xss4m \
@@ -35,11 +36,10 @@ RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
        -r sonatype:snapshots \
        -o /usr/local/bin/metals-vim -f \
   && rm cs
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/share/coursier/bin
 
 # install most needed dev software (cont...)
 RUN set -x \
+  && apt install openjdk-14-jdk -y \
   && apt install nodejs -y \
   && apt install npm -y \
   && apt install git -y \
@@ -47,6 +47,8 @@ RUN set -x \
   # end
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/share/coursier/bin
 
 # config git and define the locale
 RUN git config --global http.sslverify false \
