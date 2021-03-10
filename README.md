@@ -45,8 +45,9 @@ Following are some useful info on dev lifecycle tasks and further config to your
 
 SBT-Scala projects need a few steps to prepare:
 
-    rm -rf .bloop .bsp .metals project/project project/target
+    rm -rf .bloop .bsp .metals project/.bloop project/project project/target target
     sbt bloopInstall
+    sbt compile
     nvim build.sbt
 
 This will recreate directories `.bloop` and `.bsp` (`sbt bloopInstall`) and then `.metals` (opening the `build.sbt`). Now metals should detect the project and then request to import it. After a while, jump-to navigation should work (it could take a considerable while for the first time, as the language server needs to connect and the whole project needs to be compiled).
@@ -79,7 +80,7 @@ It happened to me needing to delete `.bloop`/`.bsp`/`.metals` more than once unt
 
 Maven-Java projects need a few steps to prepare:
 
-    rm -rf .bloop .bsp .metals
+    rm -rf .bloop .bsp .metals target
     mvn clean install
     nvim pom.xml
 

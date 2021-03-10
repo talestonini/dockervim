@@ -6,7 +6,6 @@ ENV HOME=/root
 RUN set -x \
   && apt update && apt full-upgrade -y \
   && apt-get update && apt-get full-upgrade -y \
-  # start...
   && apt-get install locales -y \
   && apt install iputils-ping -y \
   && apt install curl -y \
@@ -19,32 +18,26 @@ RUN set -x \
   && apt install nano -y \
   && apt install neovim -y \
   && apt-get install fonts-powerline -y \
-  && apt-get install silversearcher-ag -y
+  && apt-get install silversearcher-ag -y \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
-# manually install coursier, a JVM, scala dev tools, metals and metals-vim;
+# manually install coursier, scala dev tools and metals;
 # see https://www.youtube.com/watch?v=o9H2EQO3fVs
 RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
   && chmod +x cs \
   && ./cs setup --yes --apps ammonite,bloop,cs,giter8,metals,sbt,scala,scalafmt \
-  # metals-vim is not really needed, but seems to speed connection to language server
-  && ./cs bootstrap \
-       --java-opt -Xss4m \
-       --java-opt -Xms100m \
-       --java-opt -Dmetals.client=coc.nvim \
-       org.scalameta:metals_2.12:0.10.0 \
-       -r bintray:scalacenter/releases \
-       -r sonatype:snapshots \
-       -o /usr/local/bin/metals-vim -f \
   && rm cs
 
 # install most needed dev software (cont...)
 RUN set -x \
+  && apt update && apt full-upgrade -y \
+  && apt-get update && apt-get full-upgrade -y \
   && apt install openjdk-14-jdk -y \
   && apt install nodejs -y \
   && apt install npm -y \
   && apt install git -y \
   && apt install maven -y \
-  # end
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
