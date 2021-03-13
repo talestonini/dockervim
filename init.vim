@@ -60,7 +60,7 @@ call plug#end()
 
 
 "=======================================================================================================================
-" Configuration for coc.nvim
+" Config for coc.nvim
 
 " If hidden is not set, TextEdit might fail.
 set hidden
@@ -273,9 +273,9 @@ nnoremap <C-k> <C-w>+
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Tree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=======================================================================================================================
+" Config for Nerd Tree
+
 let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.DS_Store']
@@ -286,9 +286,9 @@ map <leader>nf :NERDTreeFind<cr>
 
 
 
-""""""""""""""""""""""""""""""
-" => CTRL-P
-""""""""""""""""""""""""""""""
+"=======================================================================================================================
+" Config for CTRL-P
+
 let g:ctrlp_working_path_mode = 0
 
 "let g:ctrlp_map = '<c-f>'
@@ -300,25 +300,25 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
 
 
-""""""""""""""""""""""""""""""
-" => ZenCoding
-""""""""""""""""""""""""""""""
+"=======================================================================================================================
+" Config for ZenCoding
+
 " Enable all functions in all modes
 let g:user_zen_mode='a'
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Git gutter (Git diff)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=======================================================================================================================
+" Config for Git gutter (Git diff)
+
 let g:gitgutter_enabled=1
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 
 
-""""""""""""""""""""""""""""""
-" => bufExplorer plugin
-""""""""""""""""""""""""""""""
+"=======================================================================================================================
+" Config for bufExplorer
+
 let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
@@ -327,9 +327,9 @@ map <leader>o :BufExplorer<cr>
 
 
 
-""""""""""""""""""""""""""""""
-" => Scalafmt
-""""""""""""""""""""""""""""""
+"=======================================================================================================================
+" Config for Scalafmt
+
 noremap <F5> :Autoformat<CR>
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']

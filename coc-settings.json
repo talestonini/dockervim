@@ -1,6 +1,6 @@
 {
   "coc.preferences.colorSupport": true,
-  "coc.preferences.formatOnSaveFiletypes": ["scala", "java", "xml"],
+  "coc.preferences.formatOnSaveFiletypes": ["scala", "java", "json", "xml"],
   "coc.preferences.rootPatterns": ["build.sbt", "build.sc", "build.gradle", "pom.xml"],
   "codeLens.enable": true,
   "java.format.settings.url": "/root/.config/eclipse-java-google-style.xml",

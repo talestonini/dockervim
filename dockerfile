@@ -50,12 +50,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
   && locale-gen en_US.UTF-8 \
   && git config --global http.sslverify false \
   && echo "" >> $HOME/.bashrc \
-  && echo "# Switch to ZSH shell and go home/dev" >> $HOME/.bashrc \
+  && echo "# Switch to ZSH shell" >> $HOME/.bashrc \
   && echo "if test -t 1; then" >> $HOME/.bashrc \
   && echo "  exec zsh" >> $HOME/.bashrc \
   && echo "fi" >> $HOME/.bashrc
 
-# create the init.vim and coc-settings files (needs to be after env HOME is defined)
+# create OS and dev env config files (needs to be after env HOME is defined)
+ADD ./.bash_profile $HOME/.bash_profile
 ADD ./init.vim $HOME/.config/nvim/init.vim
 ADD ./coc-settings.json $HOME/.config/nvim/coc-settings.json
 ADD ./post_vim.sh $HOME/.config/post_vim.sh
