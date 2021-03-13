@@ -43,9 +43,12 @@ RUN set -x \
 ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/share/coursier/bin
 
-# config git and define the locale
-RUN git config --global http.sslverify false \
+# config timezone, locale, git and .bashrc
+# https://blog.programster.org/docker-ubuntu-20-04-automate-setting-timezone
+ENV TZ=Australia/Melbourne
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
   && locale-gen en_US.UTF-8 \
+  && git config --global http.sslverify false \
   && echo "" >> $HOME/.bashrc \
   && echo "# Switch to ZSH shell and go home/dev" >> $HOME/.bashrc \
   && echo "if test -t 1; then" >> $HOME/.bashrc \
@@ -66,3 +69,5 @@ RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/p
 # manually install ohmyzsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY ./.zshrc $HOME/.zshrc
+
+WORKDIR $HOME/dev
