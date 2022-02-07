@@ -14,12 +14,12 @@ scalacOptions ++= {
 }
 
 libraryDependencies ++= Seq(
-  "org.slf4j" % "slf4j-api"     % "2.0.0-alpha1",
-  "org.slf4j" % "slf4j-log4j12" % "2.0.0-alpha1",
+  "org.slf4j" % "slf4j-api"     % "2.0.0-alpha6",
+  "org.slf4j" % "slf4j-log4j12" % "2.0.0-alpha6",
   // Test
   "org.scalatest" %% "scalatest" % "3.3.0-SNAP3" % Test
 )
 
 lazy val compileScalastyle = taskKey[Unit]("compileScalastyle")
-compileScalastyle := scalastyle.in(Compile).toTask("").value
-(compile in Compile) := ((compile in Compile) dependsOn compileScalastyle).value
+compileScalastyle := ((Compile / scalastyle) toTask "").value
+Compile / compile := ((Compile / compile) dependsOn compileScalastyle).value

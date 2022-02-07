@@ -26,21 +26,22 @@ RUN set -x \
 # see https://www.youtube.com/watch?v=o9H2EQO3fVs
 RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
   && chmod +x cs \
-  && ./cs setup --yes --apps ammonite,bloop,cs,giter8,metals,sbt,scala,scalafmt \
+  && ./cs setup --yes --apps ammonite,bloop,giter8,metals,sbt,scala,scalafmt \
   && rm cs
 
 # install most needed dev software (cont...)
 RUN set -x \
   && apt update && apt full-upgrade -y \
   && apt-get update && apt-get full-upgrade -y \
-  && apt install openjdk-14-jdk -y \
-  && apt install nodejs -y \
-  && apt install npm -y \
+  && apt install openjdk-17-source -y \
+  && curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
+  && apt-get install -y nodejs \
+  && apt-get install -y build-essential \
   && apt install git -y \
   && apt install maven -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/share/coursier/bin
 
 # config timezone, locale, git and .bashrc
