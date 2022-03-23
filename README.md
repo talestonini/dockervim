@@ -107,6 +107,11 @@ In a new terminal tab or window:
 
     docker exec -it vimide bash
 
+## Configuring Kitty
+
+Folder `kitty` contains files to configure the [kitty](https://sw.kovidgoyal.net/kitty/) GPU-based, terminal emulator.
+Copy those files into your `~/.config/kitty` directory.
+
 ## Note on fonts
 
 With Neovim running within a terminal (terminal in a Mac or Linux, PowerShell or Command in a Windows), the font utilised by the editor will be the font configured for the terminal. Therefore, if unicode symbols don't display properly (like the ones utilised by plugin nerdtree-git-plugin), it's a problem with the *font* not being able to do so (not a missing vim plugin or anything with the OS). Look for an appropriate font and consult nerdtree-git-plugin documentation for samples of unicode characters you may be interested in.

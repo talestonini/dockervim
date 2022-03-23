@@ -1,5 +1,6 @@
 .bloop
 .metals
+.bsp
 cs
 release.txt
 target
