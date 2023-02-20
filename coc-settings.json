@@ -1,9 +1,15 @@
 {
-  "coc.preferences.colorSupport": true,
-  "coc.preferences.formatOnSaveFiletypes": ["scala", "java", "json", "xml"],
-  "coc.preferences.rootPatterns": ["build.sbt", "build.sc", "build.gradle", "pom.xml"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "java",
+    "json",
+    "xml"
+  ],
+  "coc.preferences.rootPatterns": [
+    "build.gradle",
+    "pom.xml"
+  ],
   "codeLens.enable": true,
-  "java.format.settings.url": "/root/.config/eclipse-java-google-style.xml",
+  "java.format.settings.url": "file:///root/.config/eclipse-java-google-style.xml",
   "metals.statusBarEnabled": true,
   "metals.superMethodLensesEnabled": true
 }

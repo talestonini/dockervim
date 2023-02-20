@@ -1,9 +1,14 @@
-FROM ubuntu
+# for ubuntu arm64 arch
+FROM ubuntu:latest@sha256:61bd0b97000996232eb07b8d0e9375d14197f78aa850c2506417ef995a7199a7
 LABEL maintainer toninit
 ENV HOME=/root
 
 # install most needed dev software
 RUN set -x \
+  && apt update && apt full-upgrade -y \
+  && apt-get update && apt-get full-upgrade -y \
+  && apt-get install software-properties-common -y \
+  && add-apt-repository ppa:neovim-ppa/unstable -y \
   && apt update && apt full-upgrade -y \
   && apt-get update && apt-get full-upgrade -y \
   && apt-get install locales -y \
@@ -16,18 +21,12 @@ RUN set -x \
   && apt-get install cntlm -y \
   && apt install zsh -y \
   && apt install nano -y \
+  && apt-get install luajit -y \
   && apt install neovim -y \
   && apt-get install fonts-powerline -y \
   && apt-get install silversearcher-ag -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-
-# manually install coursier, scala dev tools and metals;
-# see https://www.youtube.com/watch?v=o9H2EQO3fVs
-RUN curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)" \
-  && chmod +x cs \
-  && ./cs setup --yes --apps ammonite,bloop,giter8,metals,sbt,scala,scalafmt \
-  && rm cs
 
 # install most needed dev software (cont...)
 RUN set -x \
@@ -41,7 +40,7 @@ RUN set -x \
   && apt install maven -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 ENV PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/share/coursier/bin
 
 # config timezone, locale, git and .bashrc

@@ -28,7 +28,6 @@ Plug 'derekwyatt/vim-scala'
 " coc.nvim plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc plugins seem more reliable intalling in vim with `:CocInstall coc-...`
-"Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-java'
 "Plug 'neoclide/coc-json'
 "Plug 'fannheyward/coc-xml'
@@ -38,17 +37,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'kien/ctrlp.vim'
-Plug 'mattn/emmet-vim'
-Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'mileszs/ack.vim'
 Plug 'numkil/ag.nvim'
-Plug 'alfredodeza/jacinto.vim'
-Plug 'Chiel92/vim-autoformat'
-Plug 'TheZoq2/neovim-auto-autoread'
-"Plug 'Yggdroot/indentLine'
-"Plug 'vim-airline/vim-airline'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
