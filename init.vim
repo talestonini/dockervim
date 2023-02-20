@@ -40,6 +40,12 @@ Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'numkil/ag.nvim'
+Plug 'vim-airline/vim-airline'
+
+" Telescope (not working in container...)
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
@@ -260,7 +266,7 @@ nnoremap <C-k> <C-w>+
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " If using airline
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 
 
@@ -324,3 +330,14 @@ map <leader>o :BufExplorer<cr>
 noremap <F5> :Autoformat<CR>
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
+
+
+
+"=======================================================================================================================
+" Config for Telescope
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>

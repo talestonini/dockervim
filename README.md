@@ -33,7 +33,7 @@ Open Neovim and:
 
 Restart Neovim and the theme should be working.
 
-Now run the following script:
+~~Now run the following script:~~
 
     $HOME/.config/post_vim.sh
 

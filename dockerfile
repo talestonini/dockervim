@@ -4,6 +4,7 @@ LABEL maintainer toninit
 ENV HOME=/root
 
 # install most needed dev software
+# NOTE: ripgrep and fd-find are dependencies of the telescope plugin (:checkhealth telescope)
 RUN set -x \
   && apt update && apt full-upgrade -y \
   && apt-get update && apt-get full-upgrade -y \
@@ -25,6 +26,8 @@ RUN set -x \
   && apt install neovim -y \
   && apt-get install fonts-powerline -y \
   && apt-get install silversearcher-ag -y \
+  && apt-get install ripgrep -y \
+  && apt install fd-find -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
