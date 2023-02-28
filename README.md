@@ -68,7 +68,7 @@ This will recreate directories `.bloop` and `.bsp` (`sbt bloopInstall`) and then
       }
     }
 
-**Thoubleshooting:**
+**Troubleshooting:**
 
 - `:CocCommand` and fuzzy search for *doctor*
 - Check the logs in `.metals/`
