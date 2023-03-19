@@ -33,6 +33,17 @@ Open Neovim and:
 
 Restart Neovim and the theme should be working.
 
+**Troubleshooting**
+
+If you are running behind a corporate proxy, then add the following to CoC config (`:CocConfig`):
+
+    {
+      ...
+      "https.rejectUnauthorized": false,
+      "http.proxyStrictSSL": false
+      ...
+    }
+
 Now run the following script:
 
     $HOME/.config/post_vim.sh
