@@ -33,6 +33,12 @@ Open Neovim and:
 
 Restart Neovim and the theme should be working.
 
+Now run the following script:
+
+    $HOME/.config/post_vim.sh
+
+**Congratulations!!!** The container should be ready to use.
+
 **Troubleshooting**
 
 If you are running behind a corporate proxy and get an error installing CoC plugins within nvim, related to self-signed certificate, try to add the following to CoC config (`:CocConfig`):
@@ -44,13 +50,10 @@ If you are running behind a corporate proxy and get an error installing CoC plug
       ...
     }
     
-Also, in your profile, try to `export NODE_TLS_REJECT_UNAUTHORIZED=0`.    
+Also, in your profile, try to `export NODE_TLS_REJECT_UNAUTHORIZED=0`. This should solve downloading the plugin, but if it depends on NodeJS libraries (like `coc-java`), then also run the following:
 
-Now run the following script:
-
-    $HOME/.config/post_vim.sh
-
-**Congratulations!!!** The container should be ready to use.
+    npm config set strict-ssl false
+    npm config set registry "http://registry.npmjs.org/"
 
 Following are some useful info on dev lifecycle tasks and further config to your env.
 
