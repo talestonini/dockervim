@@ -35,7 +35,7 @@ Restart Neovim and the theme should be working.
 
 **Troubleshooting**
 
-If you are running behind a corporate proxy, then add the following to CoC config (`:CocConfig`):
+If you are running behind a corporate proxy and get an error installing CoC plugins within nvim, related to self-signed certificate, try to add the following to CoC config (`:CocConfig`):
 
     {
       ...
@@ -43,6 +43,8 @@ If you are running behind a corporate proxy, then add the following to CoC confi
       "http.proxyStrictSSL": false
       ...
     }
+    
+Also, in your profile, try to `export NODE_TLS_REJECT_UNAUTHORIZED=0`.    
 
 Now run the following script:
 
